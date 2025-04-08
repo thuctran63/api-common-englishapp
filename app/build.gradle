@@ -1,0 +1,32 @@
+plugins {
+    id 'java-library'
+    id 'org.springframework.boot' version '3.4.4' apply false
+}
+
+group = 'englishapp.api'
+version = '1.0.0' // Thêm SNAPSHOT để biểu thị bản phát triển
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('org.springframework.boot:spring-boot-dependencies:3.4.4')
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    // implementation 'com.fasterxml.jackson.core:jackson-databind' // Bỏ nếu không cần ngay
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveBaseName.set('api-common-englishapp')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
