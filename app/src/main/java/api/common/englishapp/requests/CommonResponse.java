@@ -8,6 +8,9 @@ public class CommonResponse<T> {
     private String message;
     private T data;
 
+    public CommonResponse() {
+    }
+
     public CommonResponse(int status, String message, T data) {
         this.status = status;
         this.message = message;
@@ -24,6 +27,10 @@ public class CommonResponse<T> {
 
     public static <T> CommonResponse<T> http400(T data) {
         return new CommonResponse<T>(400, "Bad request", data);
+    }
+
+    public static <T> CommonResponse<T> http401(String message) {
+        return new CommonResponse<>(401, message, null);
     }
 
     public static <T> CommonResponse<T> http403(String message) {

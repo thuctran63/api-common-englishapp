@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'englishapp.api'
-version = '1.0.0' // Thêm SNAPSHOT để biểu thị bản phát triển
+version = '1.0.1' // Thêm SNAPSHOT để biểu thị bản phát triển
 
 java {
     toolchain {

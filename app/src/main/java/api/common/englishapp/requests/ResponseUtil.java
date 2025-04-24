@@ -17,7 +17,12 @@ public class ResponseUtil {
         return ResponseEntity.badRequest().body(CommonResponse.http400(message));
     }
 
-    public static ResponseEntity<CommonResponse<?>> unAuthorize(String message) {
+    public static ResponseEntity<CommonResponse<?>> unAuthorized(String message) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(CommonResponse.http401(message));
+    }
+
+    public static ResponseEntity<CommonResponse<?>> unAuthenticated(String message) {
         return ResponseEntity.status(HttpStatus.FORBIDDEN).body(CommonResponse.http403(message));
     }
 
