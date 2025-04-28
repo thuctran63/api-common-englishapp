@@ -20,7 +20,7 @@ public class AuthService {
 
     public Mono<UserData> validateToken(String token) {
         return webClient.post()
-                .uri("/auth/checkToken")
+                .uri("/checkToken")
                 .header("Authorization", "Bearer " + token)
                 .retrieve()
                 .bodyToMono(new ParameterizedTypeReference<CommonResponse<UserData>>() {
